@@ -35,9 +35,9 @@
 1. Install a userscript manager extension in your browser:
    - [Violentmonkey](https://violentmonkey.github.io/) (Recommended)
    - [Tampermonkey](https://www.tampermonkey.net/)
-2. Open the userscript file:
+2. Open the userscript installation URL:
    - Click to install [`Kio_Shield.user.js`](https://raw.githubusercontent.com/ProofPage/Kio-Shield/main/Kio_Shield.user.js).
-3. Confirm the installation in your userscript manager.
+3. Confirm the installation prompt in your userscript manager.
 4. Navigate to [kio.ac](https://kio.ac) and enjoy a clean, ad-free interface.
 
 ---

@@ -1,13 +1,17 @@
 // ==UserScript==
 // @name         Kio Shield — Clean & Ad-Free
-// @namespace    https://kio.ac/userscript/kio-shield
+// @namespace    https://github.com/ProofPage/Kio-Shield
+// @version      3.0.0
+// @description  Seamlessly blocks ads, sponsored banners, and donation popups on kio.ac without triggering anti-adblock detection or disrupting password and download controls.
+// @author       Page
+// @homepageURL  https://github.com/ProofPage/Kio-Shield
+// @supportURL   https://github.com/ProofPage/Kio-Shield/issues
+// @updateURL    https://raw.githubusercontent.com/ProofPage/Kio-Shield/main/Kio_Shield.user.js
+// @downloadURL  https://raw.githubusercontent.com/ProofPage/Kio-Shield/main/Kio_Shield.user.js
 // @match        https://kio.ac/*
 // @run-at       document-start
 // @grant        none
 // @noframes
-// @version      3.0.0
-// @description  Seamlessly blocks ads, sponsored banners, and donation popups on kio.ac without triggering anti-adblock detection or disrupting password and download controls.
-// @author       local
 // @license      MIT
 // ==/UserScript==
 
