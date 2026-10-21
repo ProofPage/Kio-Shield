@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kio Shield — Clean & Ad-Free
 // @namespace    https://github.com/ProofPage/Kio-Shield
-// @version      3.0.0
+// @version      3.0.1
 // @description  Seamlessly blocks ads, sponsored banners, and donation popups on kio.ac without triggering anti-adblock detection or disrupting password and download controls.
 // @author       Page
 // @homepageURL  https://github.com/ProofPage/Kio-Shield
@@ -374,15 +374,16 @@
 
   function handleDonations() {
     // Hide lifespan meter tooltip button ("Life 96%" / "수명 96%")
-    for (const trigger of document.querySelectorAll('button[data-tooltip-trigger]')) {
+    for (const trigger of document.querySelectorAll('button')) {
       if (/^(?:수명|Life)\s*\d+%$/i.test(trigger.textContent.trim())) {
         hide(trigger);
+        setStyle(trigger, 'display', 'none');
       }
     }
 
-    // Dismiss Patreon donation popovers / dialogs
-    for (const popup of document.querySelectorAll('[data-popover-content], [data-dialog-content]')) {
-      if (!visible(popup) || popup.querySelector('input, textarea, select')) continue;
+    // Dismiss Patreon donation tooltips / popovers / dialogs
+    for (const popup of document.querySelectorAll('[data-tooltip-content], [data-popover-content], [data-dialog-content]')) {
+      if (!visible(popup) || popup.querySelector('input, textarea, select, [contenteditable="true"]')) continue;
       const labels = [...popup.querySelectorAll('h1, h2, h3, h4, p, div, span')]
         .filter(e => e.children.length === 0).map(e => e.textContent.trim());
       if (!labels.some(t => DONATION_TITLE.test(t)) || !popup.querySelector('a[href*="patreon.com/"]')) continue;
@@ -390,6 +391,7 @@
       const close = popup.querySelector('button.absolute.-top-4.-right-4, [data-dialog-close], [data-popover-close]');
       if (close && !close.disabled) close.click();
       hide(popup);
+      setStyle(popup, 'display', 'none');
     }
   }
 
